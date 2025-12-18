@@ -2,6 +2,14 @@
 
 @layer components {
     .card {
-        @apply bg-white rounded shadow p-4;
+        @apply bg-white rounded shadow p-8 flex justify-center items-center flex-col;
+    }
+
+    input {
+        @apply border rounded
+    }
+
+    .btn-primary {
+        @apply bg-primary rounded border-0 text-white cursor-pointer h-8 font-bold
     }
 }

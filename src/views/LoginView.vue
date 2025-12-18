@@ -1,13 +1,13 @@
 <script setup>
-  import Login from "../components/Login.vue"
+    import Login from "../components/Login.vue"
 </script>
 
 <template>
-  <div>
-    <Login/>
-  </div>
+    <div>
+        <Login/>
+    </div>
 </template>
 
 <style scoped>
-
+  
 </style>

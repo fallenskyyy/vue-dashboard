@@ -5,7 +5,7 @@
 <template>
     <div>
         <main>
-            <Login/>
+            <router-view/>
         </main>
     </div>
 </template>

@@ -1,11 +1,19 @@
 @reference "tailwindcss";
 
+:root {
+    --color-primary: #2563eb;
+}
+
+@theme {
+    --color-primary: #2563eb;
+}
+
 @layer {
     html {
         font-family: Inter, sans-serif;
     }
 
     body {
-        @apply bg-gray-100;
+        @apply bg-gray-100 m-0;
     }
 }
