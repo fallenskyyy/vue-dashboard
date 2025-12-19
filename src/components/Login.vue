@@ -1,25 +1,28 @@
 <script setup>
 import { useAuthStore } from '@/stores/auth';
-import { reactive, ref } from 'vue';
+import { onMounted, reactive, ref } from 'vue';
 import {login} from "@/services/auth"
 import { useRoute, useRouter } from 'vue-router';
 
+const store = useAuthStore()
 const route = useRoute()
 const router = useRouter()
-const store = useAuthStore()
 
 const formLogin = ref()
 const formPassword = ref()
+const isCorrect = ref(true)
+
 
 const onSubmit = async () => {
+    
     try{
         const user = await login(formLogin.value, formPassword.value)
+        store.token = user.token
         localStorage.setItem("token", user.token)
-        alert(user.id)
-        router.push(route.query.redirect || "/dashboard")
+        router.push("/dashboard")
     }
     catch(e){
-        alert(e)
+        isCorrect.value = false
     }
 }
 </script>
@@ -28,13 +31,14 @@ const onSubmit = async () => {
     <div class="flex justify-center items-center w-screen h-screen">
         <div class="card">
             <h1>Welcome!</h1>
-            <form @submit.prevent="onSubmit" action="" style="display: flex; flex-direction: column; gap: 10px;">
+            <form class="m-3" @submit.prevent="onSubmit" action="" style="display: flex; flex-direction: column; gap: 10px;">
                 <label for="login">Login</label>
                 <input v-model="formLogin" name="login" type="text">
                 <label for="password">Password</label>
                 <input v-model="formPassword" name="password" type="text">
                 <button class="btn-primary" type="submit">Enter</button>
             </form>
+            <div class="err-login" v-if="!isCorrect">Wrong login or password!</div>
         </div>
     </div>
 </template>

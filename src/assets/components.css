@@ -5,11 +5,19 @@
         @apply bg-white rounded shadow p-8 flex justify-center items-center flex-col;
     }
 
-    input {
-        @apply border rounded
+    .btn-primary {
+        @apply bg-primary rounded border-0 cursor-pointer h-8 font-bold
     }
 
-    .btn-primary {
-        @apply bg-primary rounded border-0 text-white cursor-pointer h-8 font-bold
+    .err-login {
+        @apply bg-red-400 rounded p-3
+    }
+
+    .header-base {
+        @apply bg-white shadow flex h-15 items-center text-2xl pl-2 pr-2
+    }
+
+    .sidebar-base {
+        @apply bg-primary shadow flex w-2/12 h-screen fixed
     }
 }

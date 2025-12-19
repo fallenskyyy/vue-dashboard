@@ -3,8 +3,9 @@
 </script>
 
 <template>
-    <div>
-        <h1>Header</h1>
+    <div class="header-base">
+        <img width="20" src="/logo.jpg" alt="">
+        <p>Header</p>
     </div>
 </template>
 
